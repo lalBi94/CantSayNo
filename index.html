@@ -227,11 +227,11 @@
 				}
 			}
 
-			const finish_args = urlp.get("finish");
+			const finish_txt = urlp.get("finish_txt");
 			const finish_gif_args = urlp.get("finish_gif");
 
 			yes.addEventListener("click", () => {
-				msg.innerText = finish_args || "Ouiiiiiiiiiiiiiii ! 🎉🎉🎉";
+				msg.innerText = finish_txt || "Ouiiiiiiiiiiiiiii ! 🎉🎉🎉";
 				gif.setAttribute(
 					"src",
 					finish_gif_args || "https://i.pinimg.com/originals/7c/99/c8/7c99c8794fb95b2decda2b3d836c154f.gif"
