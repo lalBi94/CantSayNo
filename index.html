@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
+		<link
+			rel="shortcut icon"
+			href="https://static.vecteezy.com/system/resources/previews/022/287/293/original/question-mark-pink-alphabet-glossy-png.png"
+			type="image/x-icon"
+		/>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Love Request</title>
@@ -13,51 +18,69 @@
 				top: 50%;
 				left: 50%;
 				display: flex;
+				align-items: center;
+				justify-content: center;
 				flex-direction: column;
-				gap: 20px;
+				gap: 30px;
 				transform: translate(-50%, -50%);
+			}
+
+			#gif {
+				width: 200px;
 			}
 
 			#btns-container {
 				display: flex;
-                width: 100%;
+				width: 100%;
 				flex-direction: row;
+				justify-content: center;
+				gap: 20px;
 				align-items: center;
 			}
 
-			#oui {
-				background: green;
-                left: 25%;
+			#yes {
+				background: #75bd4b;
+				left: 25%;
+				border-radius: 100%;
+				box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 			}
 
-			#non {
-				background: red;
-                right: 25%;
+			#yes:hover {
+				box-shadow: inset 20px 20px 60px #69aa44,
+					inset -20px -20px 60px #ffffff;
+			}
+
+			#no {
+				background: #f32013;
+				right: 25%;
+			}
+
+			#msg {
+				text-align: center;
 			}
 
 			.btns {
-				position: absolute;
+				top: 500px;
+				font-size: larger;
+				font-weight: 600;
 				cursor: pointer;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				border: none;
 				color: white;
-				padding: 15px;
-				border-radius: 100%;
-				height: 45px;
-				width: 45px;
+				padding: 25px;
 			}
 		</style>
 
 		<div id="the-container">
-			<h1 id="msg">Est ce que tu m'aimes</h1>
+			<h1 id="msg">Do you love me</h1>
 
-            <img id="gif" src="https://www.gif-maniac.com/gifs/55/54800.gif">
+			<img id="gif" src="https://www.gif-maniac.com/gifs/55/54800.gif" />
 
 			<div id="btns-container">
-				<button class="btns" id="oui">Oui</button>
-				<button class="btns" id="non" disabled>Non</button>
+				<button class="btns" id="yes">Yes</button>
+				<button class="btns" id="no" disabled>No</button>
 			</div>
 		</div>
 
@@ -65,19 +88,159 @@
 			let lx = 0;
 			let ly = 0;
 
-			const oui = document.getElementById("oui");
-			const non = document.getElementById("non");
-            const gif = document.getElementById("gif");
+			const yes = document.getElementById("yes");
+			const no = document.getElementById("no");
+			const gif = document.getElementById("gif");
 			const msg = document.getElementById("msg");
+			const urlp = new URLSearchParams(window.location.search);
 
-			oui.addEventListener("click", () => {
-				msg.innerText = "Ouiiiiiiiiiiiiiiiiii ! 🎉🎉🎉"
-                gif.setAttribute("src", "https://i.pinimg.com/originals/7c/99/c8/7c99c8794fb95b2decda2b3d836c154f.gif")
-				oui.style.display = "none";
-				non.style.display = "none";
+			let msg_args = urlp.get("msg");
+			if (msg_args) {
+				msg_args = msg_args.replace(/"/g, "");
+				msg.innerText = msg_args;
+			}
+
+			const gif_args = urlp.get("img");
+			if (gif_args) {
+				gif.setAttribute("src", gif_args);
+			}
+
+			const lang_args = urlp.get("lang");
+			switch (lang_args) {
+				case "en": {
+					yes.innerText = "Yes";
+					no.innerText = "No";
+					break;
+				}
+
+				case "es": {
+					yes.innerText = "Sí";
+					no.innerText = "No";
+					break;
+				}
+
+				case "zh": {
+					yes.innerText = "是的";
+					no.innerText = "不";
+					break;
+				}
+
+				case "hi": {
+					yes.innerText = "हाँ";
+					no.innerText = "नहीं";
+					break;
+				}
+				case "ar": {
+					yes.innerText = "نعم";
+					no.innerText = "لا";
+					break;
+				}
+
+				case "pt": {
+					yes.innerText = "Sim";
+					no.innerText = "Não";
+					break;
+				}
+
+				case "bn": {
+					yes.innerText = "হ্যাঁ";
+					no.innerText = "না";
+					break;
+				}
+
+				case "ru": {
+					yes.innerText = "Да";
+					no.innerText = "Нет";
+					break;
+				}
+
+				case "ja": {
+					yes.innerText = "はい";
+					no.innerText = "いいえ";
+					break;
+				}
+
+				case "pa": {
+					yes.innerText = "ਹਾਂ";
+					no.innerText = "ਨਹੀਂ";
+					break;
+				}
+
+				case "de": {
+					yes.innerText = "Ja";
+					no.innerText = "Nein";
+					break;
+				}
+
+				case "fr": {
+					yes.innerText = "Oui";
+					no.innerText = "Non";
+					break;
+				}
+
+				case "ko": {
+					yes.innerText = "네";
+					no.innerText = "아니요";
+					break;
+				}
+
+				case "te": {
+					yes.innerText = "అవును";
+					no.innerText = "కాదు";
+					break;
+				}
+
+				case "vi": {
+					yes.innerText = "Có";
+					no.innerText = "Không";
+					break;
+				}
+
+				case "ta": {
+					yes.innerText = "ஆம்";
+					no.innerText = "இல்லை";
+					break;
+				}
+
+				case "ur": {
+					yes.innerText = "جی ہاں";
+					no.innerText = "نہیں";
+					break;
+				}
+
+				case "it": {
+					yes.innerText = "Sì";
+					no.innerText = "No";
+					break;
+				}
+
+				case "tl": {
+					yes.innerText = "Oo";
+					no.innerText = "Hindi";
+					break;
+				}
+
+				default: {
+					yes.innerText = "Yes";
+					no.innerText = "No";
+					break;
+				}
+			}
+
+			const finish_args = urlp.get("finish");
+			const finish_gif_args = urlp.get("finish_gif");
+
+			yes.addEventListener("click", () => {
+				msg.innerText = finish_args || "Ouiiiiiiiiiiiiiii ! 🎉🎉🎉";
+				gif.setAttribute(
+					"src",
+					finish_gif_args || "https://i.pinimg.com/originals/7c/99/c8/7c99c8794fb95b2decda2b3d836c154f.gif"
+				);
+				yes.style.display = "none";
+				no.style.display = "none";
 			});
 
-			non.addEventListener("mouseover", () => {
+			no.addEventListener("mouseover", () => {
 				let x = Math.floor(Math.random() * 350);
 				let y = Math.floor(Math.random() * 350);
 
@@ -89,7 +252,7 @@
 
 				let ran = Math.floor(Math.random() * 2);
 
-				non.style.transform = `translate(${ran === 1 ? x : -x}px, ${
+				no.style.transform = `translate(${ran === 1 ? x : -x}px, ${
 					y === 0 ? y : -y
 				}px)`;
 			});
