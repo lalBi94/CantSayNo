@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Love Request</title>
+	</head>
+
+	<body style="margin: 0; padding: 0; font-family: 'Roboto', sans serif">
+		<style>
+			#the-container {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+				transform: translate(-50%, -50%);
+			}
+
+			#btns-container {
+				display: flex;
+                width: 100%;
+				flex-direction: row;
+				align-items: center;
+			}
+
+			#oui {
+				background: green;
+                left: 25%;
+			}
+
+			#non {
+				background: red;
+                right: 25%;
+			}
+
+			.btns {
+				position: absolute;
+				cursor: pointer;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border: none;
+				color: white;
+				padding: 15px;
+				border-radius: 100%;
+				height: 45px;
+				width: 45px;
+			}
+		</style>
+
+		<div id="the-container">
+			<h1>Esce-que tu m'aimes</h1>
+
+            <img id="gif" src="https://www.gif-maniac.com/gifs/55/54800.gif">
+
+			<div id="btns-container">
+				<button class="btns" id="oui">Oui</button>
+				<button class="btns" id="non" disabled>Non</button>
+			</div>
+		</div>
+
+		<script>
+			let lx = 0;
+			let ly = 0;
+
+			const oui = document.getElementById("oui");
+			const non = document.getElementById("non");
+            const gif = document.getElementById("gif")
+
+			oui.addEventListener("click", () => {
+                gif.setAttribute("src", "https://i.pinimg.com/originals/7c/99/c8/7c99c8794fb95b2decda2b3d836c154f.gif")
+			});
+
+			non.addEventListener("mouseover", () => {
+				let x = Math.floor(Math.random() * 350);
+				let y = Math.floor(Math.random() * 350);
+
+				x = Math.abs(lx - x) <= 90 ? 500 : x;
+				y = Math.abs(ly - y) <= 90 ? 500 : y;
+
+				lx = x;
+				ly = y;
+
+				let ran = Math.floor(Math.random() * 2);
+
+				non.style.transform = `translate(${ran === 1 ? x : -x}px, ${
+					y === 0 ? y : -y
+				}px)`;
+			});
+		</script>
+	</body>
+</html>
