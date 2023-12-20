@@ -15,7 +15,7 @@ The purpose of the site is to troll friends by getting them to say No to a quest
 | finish_txt | The text that will appear if the person clicks on yes. |
 | finish_gif | Image or Gif below finish_txt.                         |
 
-## Examples
+## Examples (not encoded url)
 ```
 https://lalbi94.github.io/CantSayNo/index.html?msg=T'es un alien ?&img=https://i.pinimg.com/originals/2b/b8/78/2bb878f33afd34e139d592a2e37db1b2.gif&lang=fr&finish_txt=Je le savais !&finish_gif=https://media.tenor.com/06e290kCr_wAAAAM/jdg-joueur-du-grenier.gif
 ```
