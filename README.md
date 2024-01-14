@@ -5,7 +5,7 @@ The purpose of the site is to troll friends by getting them to say No to a quest
 
 2. If you don't fill in the options, you'll get this : ![Default page without option](assets/image.png)
 
-3. If you want to customize the page, here are the different options (index.html?msg=&img=&lang=&finish_txt&finish_gif):
+3. If you want to customize the page, here are the different options (index.html?msg=&img=&lang=&finish_txt=&finish_gif=):
 
 | Argument   | Definition                                             |
 |------------|--------------------------------------------------------|
